@@ -67,13 +67,11 @@ function shoutEventRenderer(e) {
     const counterField = document.getElementById(`${id}`);
     const newItem = document.createElement('div');
 
-    newItem.classList.add(`${id}`);
+    const selectedItem = dictObject.find(obj => obj._id === parseInt(counterField.id));
 
-    if (newItem.classList.contains(counterField.id)) {
-        const newCounterValue = dictObject[counterField.id - 1].count += 1;
+    const newCounterValue = selectedItem.count += 1;
 
-        counterField.innerText= `Count: ${newCounterValue.toString()}`;
-    }
+    counterField.innerText= `Count: ${newCounterValue.toString()}`;
 
     const newEventDetails = document.createTextNode(`Name: ${name}, Text: ${text}`);
 
