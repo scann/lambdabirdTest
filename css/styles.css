@@ -74,6 +74,6 @@ button:hover {
      color: #422929;
 }
 
-.highlight {
+.highlight, .btn-pressed  {
     background-color: #c7785e;
 }
