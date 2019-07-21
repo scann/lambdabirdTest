@@ -75,15 +75,17 @@ function eventHandler(e) {
 }
 
 function startEventGenerating(e) {
-
+    btnStart.classList.add('btn-pressed');
     count = setInterval(() => {
         eventHandler(e);
     }, getRandomInterval(1000,5000));
 }
 
 function stopEventGenerating() {
-
-    clearInterval(count);
+    if (count) {
+        btnStart.classList.remove('btn-pressed');
+        clearInterval(count);
+    }
 }
 
 function clearAllData() {
@@ -92,6 +94,7 @@ function clearAllData() {
     const eventChildren = eventContainer.children;
     const spanCounts = document.getElementsByTagName('span');
 
+    btnStart.classList.remove('btn-pressed');
     for(let item of spanCounts) {
         item.innerText = `Count: 0`;
     }
